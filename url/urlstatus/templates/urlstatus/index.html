@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Url list: </h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <ul class="list-group text-muted">
+{#                    {% for url in urls %}#}
+{#                        <li class="list-group-item">{{ url.url_name }}</li>#}
+{#                    {% endfor %}#}
+{#                    <a href="https://facebook.com/">https://facebook.com/</a>#}
+                    <a href="http://google.com/">http://google.com/</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
