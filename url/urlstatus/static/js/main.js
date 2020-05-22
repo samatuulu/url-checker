@@ -1,104 +1,41 @@
+function links(){
+    var a = document.getElementsByTagName("a");
 
-// var a = document.getElementsByTagName("a");
+    for(let i=0; i<a.length; i++){
+        link_element = a[i];
+        link = a[i].getAttribute("href");
 
-$.ajax({
-    url: 'http://localhost:8000/api/url/',
-    method: 'POST',
-    data: {
-        'url_name': 'http://google.com/',
-    },
-    success: function (response, status) {
-        console.log(response);
-        console.log(status)
-    },
-    error: function (response, status) {
-        console.log(status)
+        url_status(link, link_element)
 
     }
+}
 
+function url_status(link_f, elem) {
+    $.ajax({
+        url: 'http://localhost:8000/api/url/',
+        method: 'post',
+        data: {
+            'url_name': link_f,
+        },
+       success: function (response, status) {
+            console.log(response['url_status']);
+              if (response['url_status'] == 'success_url_code'){
+             elem.style.backgroundColor='green'
+        }
+            console.log(response);
+            console.log(status);
+        },
+        error: function (response, status) {
+            console.log(response['url_status']);
+            if (response['url_status'] == 'error_code'){
+                elem.style.backgroundColor='red'
+            }
+            console.log(status)
+        }
+
+    });
+}
+
+$(document).ready(function () {
+    links();
 });
-
-
-
-
-// $('.list-group-item').each(function () {
-//             let currentRow = $(this);
-//             let currentUrl = currentRow.html();
-//             let currentStatus = 0;
-//             $.ajax({
-//                 url: currentUrl,
-//                 type: 'get',
-//                 // crossDomain: true,
-//                 // dataType: 'jsonp',
-//             }).done(function (data, statusText, xhr) {
-//                 var status = xhr.status; // 200
-//                 currentStatus = xhr.status;
-//             }).fail(function (data, textStatus, xhr) {
-//                 currentStatus = xhr.status;
-//             }).always(function () {
-//                 currentRow.addClass(currentStatus === 200 ? 'bg-success' : 'bg-danger');
-//                 console.log(currentUrl + ' - ended with status: ' + currentStatus);
-//             });
-//         });
-//
-//
-//
-// // function display() {
-// //     let a = document.getElementsByTagName("a");
-// //     for (let i = 0; i < a.length; i++){
-// //         url = a[i].getAttribute("href");
-// //
-// //         $.ajax({
-// //             url: url,
-// //             method: 'GET',
-// //             success: function (response, status) {
-// //                 console.log(response);
-// //                 console.log(status)
-// //             },
-// //             error: function (status) {
-// //                 console.log(status)
-// //
-// //             }
-// //         })
-// //     }
-// //
-// // }
-// //
-// // display();
-//
-// // function display() {
-// //     for (let i = 0; i < value.length; i++){
-// //         console.log(i)
-// //     }
-// //
-// // }
-// // display();
-// // function display(){
-// //     for (let i = 0; i <value.length; i++){
-// //         console.log(i);
-// //     }
-// // }
-// //
-// // display();
-//
-// // function display() {
-// //     for (let i = 0; i < test.length; i++){
-// //         console.log(i);
-// //     }
-// // }
-// //`
-// // display();
-// // console.log(test);
-//
-//
-// // $.ajax({
-// //     url: 'http://localhost:8000/',
-// //     method: 'GET',
-// //     success: function (response, status) {
-// //         console.log(response);
-// //         console.log(status);
-// //     },
-// //     error:function (response, status) {
-// //         console.log(status);
-// //     }
-// // });

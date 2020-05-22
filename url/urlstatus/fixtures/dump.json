@@ -1,0 +1,34 @@
+[
+{
+  "model": "urlstatus.url",
+  "pk": 1,
+  "fields": {
+    "url_name": "https://github.com/samatuulu/"
+  }
+},
+{
+  "model": "urlstatus.url",
+  "pk": 2,
+  "fields": {
+    "url_name": "http://google.com/"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$ZqNyPqJzmiRu$YxhT79AYYMV6tVIOmLAlbEjRIrBD2teq2yCuqFBP5+w=",
+    "last_login": "2020-05-22T07:06:33.888Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-05-11T09:36:36.647Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

@@ -19,5 +19,5 @@ class UrlViewSet(APIView):
 		url = request.data['url_name']
 		r = requests.get(url)
 		if r.status_code == 200:
-			return Response({"status": "success"})
-		return Response({"status": "error"})
+			return Response({"url_status": "success_url_code"})
+		return Response({"url_status": "error_code"})
