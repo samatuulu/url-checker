@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework.response import Response
@@ -11,6 +12,11 @@ class UrlListView(LoginRequiredMixin, ListView):
 	model = Url
 	template_name = 'urlstatus/index.html'
 	context_object_name = 'urls'
+
+	def dispatch(self, request, *args, **kwargs):
+		if not request.user.is_authenticated:
+			return redirect('login')
+		return super().dispatch(request, *args, **kwargs)
 
 
 class UrlViewSet(APIView):

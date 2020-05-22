@@ -127,3 +127,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     )
 }
+
+
+LOGIN_REDIRECT_URL = 'urls'
